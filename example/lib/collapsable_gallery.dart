@@ -1,5 +1,5 @@
-import 'package:likk_picker/likk_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:likk_picker/likk_picker.dart';
 
 import 'grid_view_widget.dart';
 
@@ -9,6 +9,7 @@ class CollapsableGallery extends StatefulWidget {
   const CollapsableGallery({
     Key? key,
   }) : super(key: key);
+
   @override
   _CollapsableGalleryState createState() => _CollapsableGalleryState();
 }
@@ -23,21 +24,43 @@ class _CollapsableGalleryState extends State<CollapsableGallery> {
     notifier = ValueNotifier(<LikkEntity>[]);
     controller = GalleryController(
       gallerySetting: const GallerySetting(
-        enableCamera: true,
+        enableCamera: false,
         maximum: 2,
         requestType: RequestType.all,
         actionButton: null,
         albumTitleStyle: TextStyle(fontSize: 16),
+        albumBackground: ColoredBox(
+          color: Colors.white,
+        ),
+        albumColor: Colors.lightBlueAccent,
+        crossAxisCount: 4,
       ),
       panelSetting: const PanelSetting(
-          // background: Image.asset('../assets/bg.jpeg', fit: BoxFit.cover),
-          ),
-      headerSetting: const HeaderSetting(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
+        // background: Image.asset('../assets/bg.jpeg', fit: BoxFit.cover),
+        background: ColoredBox(
+          color: Colors.lightBlueAccent,
         ),
       ),
+      headerSetting: const HeaderSetting(
+          headerLeftWidget: Text(
+            "Hủy",
+            style: TextStyle(color: Colors.white),
+          ),
+          headerCenterWidget: Text("Hello"),
+          headerMaxHeight: 80,
+          barSize: Size(100, 4),
+          barColor: Colors.white,
+          headerBackground: ColoredBox(
+            color: Colors.lightBlueAccent,
+          ),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
+          ),
+          headerRightWidget: Text(
+            "Album",
+            style: TextStyle(color: Colors.white),
+          )),
     );
   }
 

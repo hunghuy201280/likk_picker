@@ -1,9 +1,8 @@
 import 'dart:io';
-import 'dart:math';
 
-import 'package:likk_picker/likk_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:likk_picker/likk_picker.dart';
 
 // ignore: always_use_package_imports
 import '../controllers/gallery_repository.dart';
@@ -80,28 +79,31 @@ class _GalleryHeaderState extends State<GalleryHeader> {
 
                 // Details and controls
                 Expanded(
-                  child: Row(
-                    children: [
-                      const SizedBox(width: 5),
-                      // Close icon
-                      _IconButton(
-                        icon: _controller.headerSetting.headerLeftWidget,
-                        onPressed: widget.onClose,
-                      ),
-                      Flexible(
-                        fit: _controller.headerSetting.albumFit,
-                        child: _AnimatedDropdown(
-                          controller: _controller,
-                          onPressed: widget.onAlbumToggle,
-                          albumVisibility: widget.albumVisibility,
-                          albumNotifier: widget.albumNotifier,
-                          builder: _controller.headerSetting.albumBuilder,
+                  child: Container(
+                    color: Colors.red,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Close icon
+                        _IconButton(
+                          icon: _controller.headerSetting.headerLeftWidget,
+                          onPressed: widget.onClose,
                         ),
-                      ),
-                      _controller.headerSetting.headerRightWidget,
-                    ],
+                        Center(
+                          child: _AnimatedDropdown(
+                            controller: _controller,
+                            onPressed: widget.onAlbumToggle,
+                            albumVisibility: widget.albumVisibility,
+                            albumNotifier: widget.albumNotifier,
+                            builder: _controller.headerSetting.albumBuilder,
+                          ),
+                        ),
+                        _controller.headerSetting.headerRightWidget,
+                      ],
+                    ),
                   ),
                 ),
+                _controller.headerSetting.headerCenterWidget,
               ],
             ),
           ],
@@ -150,23 +152,23 @@ class _AnimatedDropdown extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                 ),
-                TweenAnimationBuilder<double>(
-                  tween: Tween(
-                    begin: visible ? 0.0 : 1.0,
-                    end: visible ? 1.0 : 0.0,
-                  ),
-                  duration: const Duration(milliseconds: 300),
-                  builder: (context, factor, child) {
-                    return Transform.rotate(
-                      angle: pi * factor,
-                      child: child,
-                    );
-                  },
-                  child: const _IconButton(
-                    icon: Icons.keyboard_arrow_down,
-                    size: 34,
-                  ),
-                )
+                // TweenAnimationBuilder<double>(
+                //   tween: Tween(
+                //     begin: visible ? 0.0 : 1.0,
+                //     end: visible ? 1.0 : 0.0,
+                //   ),
+                //   duration: const Duration(milliseconds: 300),
+                //   builder: (context, factor, child) {
+                //     return Transform.rotate(
+                //       angle: pi * factor,
+                //       child: child,
+                //     );
+                //   },
+                //   child: const _IconButton(
+                //     icon: Icons.keyboard_arrow_down,
+                //     size: 34,
+                //   ),
+                // )
               ],
             );
           },

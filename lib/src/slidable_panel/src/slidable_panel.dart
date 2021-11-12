@@ -44,6 +44,7 @@ class HeaderSetting {
     this.elevation = 0,
     this.barSize = const Size(40, 5),
     this.borderRadius = BorderRadius.zero,
+    this.headerCenterWidget = const SizedBox.shrink(),
   });
 
   ///Bar color
@@ -55,6 +56,9 @@ class HeaderSetting {
 
   /// Default: BorderRadius.zero
   final Size barSize;
+
+  ///
+  final Widget headerCenterWidget;
 
   /// Margin for panel top. Which can be used to show status bar if you need
   /// to show panel above scaffold.
