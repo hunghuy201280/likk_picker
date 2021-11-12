@@ -268,7 +268,7 @@ class _Handler extends StatelessWidget {
           child: Container(
             width: controller.headerSetting.barSize.width,
             height: controller.headerSetting.barSize.height,
-            color: Colors.grey.shade700,
+            color: controller.headerSetting.barColor,
           ),
         ),
       ),
