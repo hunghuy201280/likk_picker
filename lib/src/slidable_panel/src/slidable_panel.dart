@@ -32,6 +32,7 @@ enum SlidingState {
 class HeaderSetting {
   ///
   const HeaderSetting({
+    this.barColor = Colors.grey,
     this.topMargin = 70.0,
     this.headerMaxHeight = 56.0,
     this.headerMinHeight = 25.0,
@@ -44,6 +45,9 @@ class HeaderSetting {
     this.barSize = const Size(40, 5),
     this.borderRadius = BorderRadius.zero,
   });
+
+  ///Bar color
+  final Color barColor;
 
   /// BorderRadius of header
   /// Default: BorderRadius.zero
