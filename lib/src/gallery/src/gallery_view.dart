@@ -95,6 +95,7 @@ class _GalleryViewWrapperState extends State<GalleryViewWrapper> {
 
     return Material(
       key: _controller._wrapperKey,
+      color: widget.backgroundColor,
       child: GalleryControllerProvider(
         controller: _controller,
         child: Stack(
