@@ -44,10 +44,15 @@ class GalleryViewWrapper extends StatefulWidget {
     required this.child,
     required this.controller,
     this.safeAreaBottom = false,
+    this.backgroundColor = Colors.white,
   }) : super(key: key);
 
   ///
   final Widget child;
+
+  ///
+  /// use this to set background if have border radius
+  final Color backgroundColor;
 
   ///
   final bool safeAreaBottom;
