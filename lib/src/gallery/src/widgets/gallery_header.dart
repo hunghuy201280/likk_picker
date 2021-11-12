@@ -79,31 +79,31 @@ class _GalleryHeaderState extends State<GalleryHeader> {
 
                 // Details and controls
                 Expanded(
-                  child: Container(
-                    color: Colors.red,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // Close icon
-                        _IconButton(
-                          icon: _controller.headerSetting.headerLeftWidget,
-                          onPressed: widget.onClose,
-                        ),
-                        Center(
-                          child: _AnimatedDropdown(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Close icon
+                      _IconButton(
+                        icon: _controller.headerSetting.headerLeftWidget,
+                        onPressed: widget.onClose,
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          _AnimatedDropdown(
                             controller: _controller,
                             onPressed: widget.onAlbumToggle,
                             albumVisibility: widget.albumVisibility,
                             albumNotifier: widget.albumNotifier,
                             builder: _controller.headerSetting.albumBuilder,
                           ),
-                        ),
-                        _controller.headerSetting.headerRightWidget,
-                      ],
-                    ),
+                          _controller.headerSetting.headerCenterWidget,
+                        ],
+                      ),
+                      _controller.headerSetting.headerRightWidget,
+                    ],
                   ),
                 ),
-                _controller.headerSetting.headerCenterWidget,
               ],
             ),
           ],
